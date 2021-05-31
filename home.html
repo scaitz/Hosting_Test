@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>MBOIStatS</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='https://use.typekit.net/vzm3qix.css'>
+<link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css'><link rel="stylesheet" href="./style.css">
+
+</head>
+
+<style>
+	@charset "UTF-8";
+	*::before, *::after {
+	  box-sizing: border-box;
+	}
+
+	html, body {
+	  width: 100%;
+	  height: 100%;
+	  -webkit-text-size-adjust: 100%;
+	  text-size-adjust: 100%;
+	}
+
+	body {
+	  display: flex;
+	  flex-direction: column;
+	  align-items: center;
+	  justify-content: center;
+	  margin: 0;
+	  background: #f2f2f2;
+	}
+
+	h5, p, p {
+	  margin: 0;
+	}
+
+	.publikasi{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+	}
+
+	.publikasi h2{
+	position: relative;
+    padding-left: 20px;
+    padding-top: 20px;
+    font-family: 'roboto';
+    font-style: normal;
+    font-size: 40px;
+    line-height: 30px;
+    font-weight: bold;
+    color: #310000;
+	}
+
+	.text-muted {
+	  color: #bebfc1;
+	}
+
+	.cascade-slider {
+	  font-family: roboto;
+	  font-size: 14px;
+	  font-weight: 400;
+	  line-height: 1.25;
+	  color: #58595b;
+	  width: 900px;
+	  height: 700px;
+	}
+
+	.cascade-slider-item {
+	  display: flex;
+	  flex-flow: column nowrap;
+	  word-wrap: break-word;
+	  min-width: 0;
+	  max-width: 300px;
+	  height: 600px;
+	  background: #fff;
+	  background-clip: border-box;
+	  border: 1px solid #999999;
+	  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+	  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+	  -webkit-transition: all 1s ease;
+	  transition: all 1s ease;
+	}
+	.cascade-slider-item > img {
+	  width: 100%;
+	}
+	.cascade-slider-item.slick-current {
+	  position: relative;
+	  -webkit-transform: scale(1);
+	  transform: scale(1);
+	  z-index: 1;
+	}
+	.cascade-slider-item:not(.slick-current) {
+	  -webkit-transform: scale(0.95);
+	  transform: scale(0.95);
+	  filter: brightness(0.9);
+	}
+
+	.cascade-slider-body {
+	  display: flex;
+	  flex-flow: column nowrap;
+	  height: 130px;
+	  padding: 10px 15px;
+	}
+
+	.cascade-slider-title {
+	  font-size: 20px;
+	  font-weight: 700;
+	  height: 35px;
+	}
+
+	.cascade-slider-subtitle {
+	  font-size: 18px;
+	  margin-bottom: 5px;
+	}
+
+	.cascade-slider-text {
+	  flex: 1;
+	  font-size: 18px;
+	  margin-bottom: 10px;
+	}
+
+	.star-rating {
+	  position: relative;
+	  width: 90px;
+	  display: inline-block;
+	  letter-spacing: 5px;
+	}
+	.star-rating::before {
+	  display: block;
+	  font-family: FontAwesome;
+	  font-size: 14px;
+	  color: #999999;
+	  content: "";
+	}
+	.star-rating span {
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  width: auto;
+	  display: block;
+	  height: 100%;
+	  overflow: hidden;
+	}
+	.star-rating span::before {
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  display: block;
+	  font-family: FontAwesome;
+	  font-size: 14px;
+	  color: #fcb832;
+	  content: "";
+	}
+
+	.slick-prev,
+	.slick-next {
+	  position: absolute;
+	  top: 50%;
+	  display: flex;
+	  font-size: 0;
+	  line-height: 0;
+	  color: transparent;
+	  width: 35px;
+	  height: 40px;
+	  background: transparent;
+	  outline: none;
+	  cursor: pointer;
+	  border: 1px dashed transparent;
+	}
+	.slick-prev::before,
+	.slick-next::before {
+	  position: absolute;
+	  top: -6px;
+	  left: 0;
+	  display: flex;
+	  align-items: center;
+	  justify-content: center;
+	  font-family: FontAwesome;
+	  font-size: 44px;
+	  line-height: 1.25;
+	  color: #d9d9d9;
+	  -webkit-transition: color 0.4s ease;
+	  transition: color 0.4s ease;
+	}
+	.slick-prev:hover::before,
+	.slick-next:hover::before {
+	  color: #3a676f;
+	}
+
+	.slick-prev {
+	  left: -40px;
+	}
+	.slick-prev:before {
+	  content: "";
+	}
+
+	.slick-next {
+	  right: -40px;
+	}
+	.slick-next:before {
+	  content: "";
+	}
+
+	.slick-dots {
+	  display: flex;
+	  flex-direction: row;
+	  justify-content: center;
+	  list-style-type: none;
+	  margin: 20px 0;
+	  padding: 0;
+	}
+	.slick-dots > li {
+	  display: inline-block;
+	  width: 30px;
+	  height: 10px;
+	  margin: 0;
+	  padding: 0;
+	  cursor: pointer;
+	}
+	.slick-dots > li:nth-last-of-type(n + 1) {
+	  margin-left: 5px;
+	}
+	.slick-dots > li button {
+	  color: transparent;
+	  width: 30px;
+	  height: 10px;
+	  background: #d9d9d9;
+	  border: 1px solid #999999;
+	  border-radius: 0;
+	  outline: none;
+	  cursor: pointer;
+	}
+	.slick-dots > li button:hover, .slick-dots > li button:focus {
+	  background: #3a676f;
+	  border: 1px solid #0e191b;
+	  outline: none;
+	  -webkit-transition: all 0.4s ease;
+	  transition: all 0.4s ease;
+	}
+	.slick-dots > li.slick-active > button {
+	  background: #3a676f;
+	  border: 1px solid #0e191b;
+	}
+</style>
+<style>
+	.carousel-caption {
+	  font-size: 12px;
+	  font-style: italic;
+	  font-weight: bold;
+	  /* display: none;  remove comment to hide captions */
+	}
+	.carousel-control {
+	  text-shadow: 0;
+	}
+	.carousel-control.left {
+	  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0.0001) 100%);
+	  background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 100%);
+	  background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0)), to(#000000));
+	  background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 100%) !important;
+	}
+	.carousel-control.right {
+	  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0.0001) 100%);
+	  background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 100%);
+	  background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0)), to(#000000));
+	  background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 100%) !important;
+	}
+</style>
+<script>
+	//Publikasi
+	var dataPublikasiObject;
+	url='https://webapi.bps.go.id/v1/api/list/domain/3573/model/publication/lang/ind/id/1/key/9db89e91c3c142df678e65a78c4e547f';
+	var xhr = new XMLHttpRequest();
+	xhr.open('GET', url, false);
+	xhr.onreadystatechange = function() {
+	  // request completed?
+	  if (xhr.readyState !== 4) return;
+	  if (xhr.status === 200) {
+		// request successful - show response
+		dataPublikasiObject = JSON.parse(xhr.responseText);
+	  }
+	  else {
+		// request error
+		console.log('HTTP error', xhr.status, xhr.statusText);
+	  }
+	};
+	xhr.send();
+	
+	dataPublikasiObject = dataPublikasiObject.data;
+	const dataPublikasiString = dataPublikasiObject.map(a => Object.values(a));
+	const cover = dataPublikasiString[1].map(a => a.cover);
+	const judul = dataPublikasiString[1].map(b => b.title);
+	const pdfSource = dataPublikasiString[1].map(c => c.pdf);
+	const ukuran = dataPublikasiString[1].map(d => d.size);
+	const releaseDate = dataPublikasiString[1].map(e => e.rl_date);
+	
+	//Infografis
+	var dataInfografisObject;
+	url2='https://webapi.bps.go.id/v1/api/list/domain/3573/model/infographic/lang/ind/domain/3573/key/9db89e91c3c142df678e65a78c4e547f';
+	var xhr2 = new XMLHttpRequest();
+	xhr2.open('GET', url2, false);
+	xhr2.onreadystatechange = function() {
+	  // request completed?
+	  if (xhr2.readyState !== 4) return;
+	  if (xhr2.status === 200) {
+		// request successful - show response
+		dataInfografisObject = JSON.parse(xhr2.responseText);
+	  }
+	  else {
+		// request error
+		console.log('HTTP error', xhr2.status, xhr2.statusText);
+	  }
+	};
+	xhr2.send();
+	
+	dataInfografisObject = dataInfografisObject.data;
+	const dataInfografisString = dataInfografisObject.map(a => Object.values(a));
+	const judulInfografis = dataInfografisString[1].map(b => b.title);
+	const gambarInfografis = dataInfografisString[1].map(c => c.img);
+</script>
+<body>
+<header>
+  <br>
+  <h1 class="w3-margin w3-medium" style="font-family: oswald; font-size: 18; font-weight: reg; color: white; padding:50px 80px;" > </h1>
+
+</header>
+
+
+<!-- partial:index.partial.html -->
+<!-- Cascade Slider -->
+<div class="home">
+	<div class="w3-container w3-red w3-center" style="background-image: url(file:///android_res/drawable/home_bps.png); background-repeat: no-repeat; background-size: contain,cover; background-position-x: center;  padding:100px 380px; margin-top: 190px; margin-bottom: -100px;">
+    </div>
+<div class="publikasi">
+	<div class="w3-container w3-red w3-center" style="background-image: url(file:///android_res/drawable/home_publikasi.png); background-repeat: no-repeat; background-size: contain,cover; background-position-x: center;  padding:100px 380px; margin-top: 30px; margin-bottom: -100px;">
+    </div>
+ <section class="cascade-slider">
+    <div class="cascade-slider-track">
+      <!-- Slider Item > 1 -->
+      <div class="cascade-slider-item">
+        <script> document.write('<img src="'+cover[0]+'" alt="FPO 1" />');</script>
+        <div class="cascade-slider-body">
+          <script>document.write('<h5 class="cascade-slider-title">DETAIL PUBLIKASI:</h5>');
+	/*		
+	if(judul[0].length<=28)
+				document.write('<h5 class="cascade-slider-title">'+judul[0].toUpperCase()+'</h5>');
+			else
+				document.write('<h5 class="cascade-slider-title">'+judul[0].substring(0,27).toUpperCase()+'...</h5>'); */
+		  </script>
+		  <script>document.write('<p class="cascade-slider-subtitle text-muted">Release Date: '+releaseDate[0]+'</p>');</script>
+		  <script>document.write('<p class="cascade-slider-subtitle text-muted">File Size: '+ukuran[0]+'</p>');</script>
+		  <script>document.write('<p class="cascade-slider-text"><a style="color:#000000;" href="'+pdfSource[0]+'"><u>DOWNLOAD</u></a></p>');</script>
+        </div>
+      </div>
+      <!--/ Slider Item > 1 -->
+      
+      <!-- Slider Item > 2 -->
+      <div class="cascade-slider-item">
+        <script> document.write('<img src="'+cover[1]+'"/>');</script>
+        <div class="cascade-slider-body">
+          <script>document.write('<h5 class="cascade-slider-title">DETAIL PUBLIKASI:</h5>');
+	/*		
+			if(judul[1].length<=28)
+				document.write('<h5 class="cascade-slider-title">'+judul[1].toUpperCase()+'</h5>');
+			else
+				document.write('<h5 class="cascade-slider-title">'+judul[1].toUpperCase()+'...</h5>'); */
+		  </script>
+		  <script>document.write('<p class="cascade-slider-subtitle text-muted">Release Date: '+releaseDate[1]+'</p>');</script>
+		  <script>document.write('<p class="cascade-slider-subtitle text-muted">File Size: '+ukuran[1]+'</p>');</script>
+		  <script>document.write('<p class="cascade-slider-text"><a style="color:#000000;" href="'+pdfSource[1]+'"><u>DOWNLOAD</u></a></p>');</script>
+        </div>
+      </div>
+      <!--/ Slider Item > 2 -->
+      
+      <!-- Slider Item > 3 -->
+      <div class="cascade-slider-item">
+        <script> document.write('<img src="'+cover[2]+'"/>');</script>
+        <div class="cascade-slider-body">
+          <script>document.write('<h5 class="cascade-slider-title">DETAIL PUBLIKASI:</h5>');
+	/*		
+			if(judul[2].length<=28)
+				document.write('<h5 class="cascade-slider-title">'+judul[2].toUpperCase()+'</h5>');
+			else
+				document.write('<h5 class="cascade-slider-title">'+judul[2].substring(0,27).toUpperCase()+'...</h5>'); */
+		  </script>
+		  <script>document.write('<p class="cascade-slider-subtitle text-muted">Release Date: '+releaseDate[2]+'</p>');</script>
+		  <script>document.write('<p class="cascade-slider-subtitle text-muted">File Size: '+ukuran[2]+'</p>');</script>
+		  <script>document.write('<p class="cascade-slider-text"><a style="color:#000000;" href="'+pdfSource[2]+'"><u>DOWNLOAD</u></a></p>');</script>
+        </div>
+      </div>
+      <!--/ Slider Item > 3 -->
+      
+      <!-- Slider Item > 4 -->
+      <div class="cascade-slider-item">
+        <script> document.write('<img src="'+cover[3]+'"/>');</script>
+        <div class="cascade-slider-body">
+          <script>document.write('<h5 class="cascade-slider-title">DETAIL PUBLIKASI:</h5>');
+	/*		
+			if(judul[3].length<=28)
+				document.write('<h5 class="cascade-slider-title">'+judul[3].toUpperCase()+'</h5>');
+			else
+				document.write('<h5 class="cascade-slider-title">'+judul[3].substring(0,27).toUpperCase()+'...</h5>'); */
+		  </script>
+		  <script>document.write('<p class="cascade-slider-subtitle text-muted">Release Date: '+releaseDate[3]+'</p>');</script>
+		  <script>document.write('<p class="cascade-slider-subtitle text-muted">File Size: '+ukuran[3]+'</p>');</script>
+		  <script>document.write('<p class="cascade-slider-text"><a style="color:#000000;" href="'+pdfSource[3]+'"><u>DOWNLOAD</u></a></p>');</script>
+        </div>
+      </div>
+      <!--/ Slider Item > 4 -->
+      
+      <!-- Slider Item > 5 -->
+      <div class="cascade-slider-item">
+        <script> document.write('<img src="'+cover[4]+'"/>');</script>
+        <div class="cascade-slider-body">
+          <script>document.write('<h5 class="cascade-slider-title">DETAIL PUBLIKASI:</h5>');
+	/*		
+			if(judul[4].length<=28)
+				document.write('<h5 class="cascade-slider-title">'+judul[4].toUpperCase()+'</h5>');
+			else
+				document.write('<h5 class="cascade-slider-title">'+judul[4].substring(0,27).toUpperCase()+'...</h5>');*/
+		  </script>
+		  <script>document.write('<p class="cascade-slider-subtitle text-muted">Release Date: '+releaseDate[4]+'</p>');</script>
+		  <script>document.write('<p class="cascade-slider-subtitle text-muted">File Size: '+ukuran[4]+'</p>');</script>
+		  <script>document.write('<p class="cascade-slider-text"><a style="color:#000000;" href="'+pdfSource[4]+'"><u>DOWNLOAD</u></a></p>');</script>
+        </div>
+      </div>
+      <!--/ Slider Item > 5 -->
+      
+      <!-- Slider Item > 6 -->
+      <div class="cascade-slider-item">
+        <script> document.write('<img src="'+cover[5]+'"/>');</script>
+        <div class="cascade-slider-body">
+          <script>document.write('<h5 class="cascade-slider-title">DETAIL PUBLIKASI:</h5>');
+	/*		
+			if(judul[5].length<=28)
+				document.write('<h5 class="cascade-slider-title">'+judul[5].toUpperCase()+'</h5>');
+			else
+				document.write('<h5 class="cascade-slider-title">'+judul[5].substring(0,27).toUpperCase()+'...</h5>'); */
+		  </script>
+		  <script>document.write('<p class="cascade-slider-subtitle text-muted">Release Date: '+releaseDate[5]+'</p>');</script>
+		  <script>document.write('<p class="cascade-slider-subtitle text-muted">File Size: '+ukuran[5]+'</p>');</script>
+		  <script>document.write('<p class="cascade-slider-text"><a style="color:#000000;" href="'+pdfSource[5]+'"><u>DOWNLOAD</u></a></p>');</script>
+        </div>
+      </div>
+      <!--/ Slider Item > 6 -->
+	  
+	  <!-- Slider Item > 7 -->
+      <div class="cascade-slider-item">
+        <script> document.write('<img src="'+cover[6]+'"/>');</script>
+        <div class="cascade-slider-body">
+          <script>document.write('<h5 class="cascade-slider-title">DETAIL PUBLIKASI:</h5>');
+	/*		
+			if(judul[6].length<=28)
+				document.write('<h5 class="cascade-slider-title">'+judul[6].toUpperCase()+'</h5>');
+			else
+				document.write('<h5 class="cascade-slider-title">'+judul[6].substring(0,27).toUpperCase()+'...</h5>'); */
+		  </script>
+		  <script>document.write('<p class="cascade-slider-subtitle text-muted">Release Date: '+releaseDate[6]+'</p>');</script>
+		  <script>document.write('<p class="cascade-slider-subtitle text-muted">File Size: '+ukuran[6]+'</p>');</script>
+		  <script>document.write('<p class="cascade-slider-text"><a style="color:#000000;" href="'+pdfSource[6]+'"><u>DOWNLOAD</u></a></p>');</script>
+        </div>
+      </div>
+      <!--/ Slider Item > 7 -->
+	  
+	  <!-- Slider Item > 8 -->
+      <div class="cascade-slider-item">
+        <script> document.write('<img src="'+cover[7]+'"/>');</script>
+        <div class="cascade-slider-body">
+          <script>document.write('<h5 class="cascade-slider-title">DETAIL PUBLIKASI:</h5>');
+	/*		
+			if(judul[7].length<=28)
+				document.write('<h5 class="cascade-slider-title">'+judul[7].toUpperCase()+'</h5>');
+			else
+				document.write('<h5 class="cascade-slider-title">'+judul[7].substring(0,27).toUpperCase()+'...</h5>'); */
+		  </script>
+		  <script>document.write('<p class="cascade-slider-subtitle text-muted">Release Date: '+releaseDate[7]+'</p>');</script>
+		  <script>document.write('<p class="cascade-slider-subtitle text-muted">File Size: '+ukuran[7]+'</p>');</script>
+		  <script>document.write('<p class="cascade-slider-text"><a style="color:#000000;" href="'+pdfSource[7]+'"><u>DOWNLOAD</u></a></p>');</script>
+        </div>
+      </div>
+      <!--/ Slider Item > 8 -->
+	  
+	  <!-- Slider Item > 9 -->
+      <div class="cascade-slider-item">
+        <script> document.write('<img src="'+cover[8]+'"/>');</script>
+        <div class="cascade-slider-body">
+          <script>document.write('<h5 class="cascade-slider-title">DETAIL PUBLIKASI:</h5>');
+	/*		
+			if(judul[8].length<=28)
+				document.write('<h5 class="cascade-slider-title">'+judul[8].toUpperCase()+'</h5>');
+			else
+				document.write('<h5 class="cascade-slider-title">'+judul[8].substring(0,27).toUpperCase()+'...</h5>'); */
+		  </script>
+		  <script>document.write('<p class="cascade-slider-subtitle text-muted">Release Date: '+releaseDate[8]+'</p>');</script>
+		  <script>document.write('<p class="cascade-slider-subtitle text-muted">File Size: '+ukuran[8]+'</p>');</script>
+		  <script>document.write('<p class="cascade-slider-text"><a style="color:#000000;" href="'+pdfSource[8]+'"><u>DOWNLOAD</u></a></p>');</script>
+        </div>
+      </div>
+      <!--/ Slider Item > 9 -->
+	  
+	  <!-- Slider Item > 10 -->
+      <div class="cascade-slider-item">
+        <script> document.write('<img src="'+cover[9]+'"/>');</script>
+        <div class="cascade-slider-body">
+          <script>document.write('<h5 class="cascade-slider-title">DETAIL PUBLIKASI:</h5>');
+	/*		
+			if(judul[9].length<=28)
+				document.write('<h5 class="cascade-slider-title">'+judul[9].toUpperCase()+'</h5>');
+			else
+				document.write('<h5 class="cascade-slider-title">'+judul[9].substring(0,27).toUpperCase()+'...</h5>'); */
+		  </script>
+		  <script>document.write('<p class="cascade-slider-subtitle text-muted">Release Date: '+releaseDate[9]+'</p>');</script>
+		  <script>document.write('<p class="cascade-slider-subtitle text-muted">File Size: '+ukuran[9]+'</p>');</script>
+		  <script>document.write('<p class="cascade-slider-text"><a style="color:#000000;" href="'+pdfSource[9]+'"><u>DOWNLOAD</u></a></p>');</script>
+        </div>
+      </div>
+      <!--/ Slider Item > 10 -->
+    </div>
+  </section>
+  <!--/ Cascade Slider -->	
+</div>
+ 
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js'></script>
+  
+  
+ <!-- Slider Ke-2 --> 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.4/jquery.touchSwipe.min.js"></script>
+
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+
+  <div class="publikasi">
+  	 <div class="w3-container w3-red w3-center" style="background-image: url(file:///android_res/drawable/home_infografis.png); background-repeat: no-repeat; background-size: contain,cover; background-position-x: center;  padding:100px 380px; margin-top: 10px; margin-bottom: -100px;">
+     </div>
+
+  </div>
+
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+	  <script>document.write('<img src="'+gambarInfografis[0]+'" width="900px">');</script>
+      <div class="carousel-caption">
+	    <script>document.write('<h3>'+judulInfografis[0]+'</h3>');</script>
+      </div>
+    </div>
+    <div class="item">
+      <script>document.write('<img src="'+gambarInfografis[1]+'" width="900px">');</script>
+      <div class="carousel-caption">
+	    <script>document.write('<h3>'+judulInfografis[1]+'</h3>');</script>
+      </div>
+    </div>
+    <div class="item">
+      <script>document.write('<img src="'+gambarInfografis[2]+'" width="900px">');</script>
+      <div class="carousel-caption">
+	    <script>document.write('<h3>'+judulInfografis[2]+'</h3>');</script>
+      </div>
+    </div>
+    <div class="item">
+      <script>document.write('<img src="'+gambarInfografis[3]+'" width="900px">');</script>
+      <div class="carousel-caption">
+	    <script>document.write('<h3>'+judulInfografis[3]+'</h3>');</script>
+      </div>
+    </div>
+    <div class="item">
+      <script>document.write('<img src="'+gambarInfografis[4]+'" width="900px">');</script>
+      <div class="carousel-caption">
+	    <script>document.write('<h3>'+judulInfografis[4]+'</h3>');</script>
+      </div>
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+</div>
+</div>
+  
+</body>
+<script>
+	/*
+	 * Cascade Slider v.1.0.0
+	 * ----------------------------------------------------- */
+	console.log("Ready!");
+
+	// Star Rating
+	$.fn.rating = function () {
+	  let val = 0,
+		size = 0,
+		stars = 5;
+
+	  return this.each(function (i, e) {
+		val = parseFloat($(e).text());
+		size = $(e).width() / stars;
+		
+		$(e).html($("<span/>").animate({ width: val * size }, 1000));
+	  });
+	};
+
+	$(function () {
+	  
+	  // Initialize Slider
+	  $('.cascade-slider-track').slick({
+		centerMode: true,
+		centerPadding: '0px',
+		slidesToShow: 3,
+		slidesToScroll: 1,
+		dots: true,
+		focusOnSelect: true
+	  });
+
+	  // Initialize Star Rating
+	  $('.star-rating').rating();
+	});
+</script>
+<script>
+	$(".carousel").swipe({
+	  swipe: function(
+		event,
+		direction,
+		distance,
+		duration,
+		fingerCount,
+		fingerData
+	  ) {
+		if (direction == "left") $(this).carousel("next");
+		if (direction == "right") $(this).carousel("prev");
+	  },
+	  allowPageScroll: "vertical"
+	});
+
+	$(".carousel").swipe({
+	  swipe: function(
+		event,
+		direction,
+		distance,
+		duration,
+		fingerCount,
+		fingerData
+	  ) {
+		if (direction == "left") $(this).carousel("next");
+		if (direction == "right") $(this).carousel("prev");
+	  },
+	  allowPageScroll: "vertical"
+	});
+</script>
+</html>
